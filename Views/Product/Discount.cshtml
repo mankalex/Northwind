@@ -1,0 +1,25 @@
+@model IEnumerable<Discount>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Discount Percent</th>
+      <th scope="col">Discount Code</th>
+      <th scope="col">End Date</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (Discount discount in Model)
+    {
+        <tr>
+            <td>@discount.Title</td>
+            <td>@string.Format("{0:P0}", discount.DiscountPercent)</td>
+            <td>@discount.Code</td>
+            <td>@discount.EndTime.ToString("MM/dd/yyyy")</td>
+        </tr>
+    }
+  </tbody>
+</table>
+

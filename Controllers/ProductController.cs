@@ -11,6 +11,8 @@ namespace Northwind.Controllers
 
         public IActionResult Category() => View(_dataContext.Categories.OrderBy(b => b.CategoryName));
 
+        public IActionResult Discount() => View(_dataContext.Discounts.Where(d => d.StartTime <= DateTime.Now && d.EndTime > DateTime.Now));
+
         public IActionResult Index(int id)
         {
             // ViewBag.CategoryId = id;
